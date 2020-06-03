@@ -6,7 +6,8 @@
         ((= kinds-of-coins 4) 25)
         ((= kinds-of-coins 5) 50)))
 
-; 可以重复拿, 那就是完全背包问题了?
+; 可以重复拿, 那就是完全背包问题了...
+; 比如(count-change 4)等于1
 (define (count-change amount)
   (define (cc amount kinds-of-coins)
     (cond ((= amount 0) 1)
