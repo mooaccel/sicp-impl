@@ -1,4 +1,5 @@
 (define usCoins (list 50 25 10 5 1))
+(define usCoinsRandom (list 25 10 50 1 5))  ; 顺序无影响
 (define ukCoins (list 100 50 20 10 5 2 1 0.5))
 
 ;;; 可以重复拿, 那就是完全背包问题了...
@@ -44,7 +45,7 @@
                    (cc (- amount 
                           (firstDenomination coinValues)) ; 取
                        coinValues)))))
-  (cc amount usCoins))
+  (cc amount usCoinsRandom))
 
 (count-change 100)
 ; 注意如果换成 ukCoins, 计算要很久...因为习题exer2-19并没有从本质上改进算法...
