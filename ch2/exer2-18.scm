@@ -1,3 +1,4 @@
+; 遇到nil就返回nil
 (define (reverse seqs)
   (define (reverse-iter remainSeqs res)
     (if (null? remainSeqs)
