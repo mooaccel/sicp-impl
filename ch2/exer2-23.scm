@@ -2,7 +2,7 @@
 ; if可以省略另外一个分支? 看这个例子好像可以啊. TODO, 待查...
 ;(define (for-each proc seqs)
 ;  (if (not (null? seqs))
-;      (begin
+;      (begin   ; 必须有begin, 否则出现 ;The object #!unspecific is not applicable. cond这里不需要, 这是细微的小差别1.1.6里说的小差别就是这个
 ;        (proc (car seqs))
 ;        (for-each proc (cdr seqs)))))
 ;(for-each (lambda (x) 
