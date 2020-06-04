@@ -66,5 +66,10 @@
 ;val_test
 
 ; 测试number?
-; (number? 1) ; #t
-; (number? '1) ; #t 肯定了 '加在数字前面是没用的
+;(number? 1) ; #t
+;(number? '1) ; #t 肯定了 '加在数字前面是没用的
+;(variable? 1) ; #f
+;(variable? '1) ; #f
+;
+;(variable? '+) ; #t
+;(variable? +) ; #t
