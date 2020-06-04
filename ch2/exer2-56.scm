@@ -29,8 +29,12 @@
 (define (multiplicand p)
   (caddr p))
 
+; exponentiation
 (define (exponentiation? exp)
-  (and (pair? exp) (eq? (car x) '**)))
+  (and (pair? exp) (eq? (car exp) '**)))
+; 写成这样就报错了!!!很粗心, 也是scheme的解释器不提示哪一行有问题, 很难debug
+; 会把底下这一层的问题上报. 然后还不提示是哪一层的问题
+;  (and (pair? exp) (eq? (car xxx) '**)))
 (define (base exp)
   (cadr exp))
 (define (exponent exp)
@@ -39,17 +43,18 @@
 (define (makeExponentiation baseNum n)
   (cond ((=number? n 0) 1)
         ((=number? n 1) baseNum)
-        ((and (=number? baseNum) (=number? n)) (expt baseNum n))
-        (else (list ('** baseNum n)))))
+        ;((and (=number? baseNum) (=number? n)) (expt baseNum n))
+        (else (list '** baseNum n))))
+        ;; exponentiation
 
 (define (deriv exp var)
   (cond ((number? exp) 0)
-        ((exponentiation? exp) (let  ; 这种式子会不会被判断成variable?不敢保证, 所以放在了这个位置看
-           ((u (base exp)))
-           ((n (exponent exp))) 
-           (* (* n (makeExponentiation u (- n 1)))
-              (deriv u var))
-        ))
+        ((exponentiation? exp) ; 这种式子会不会被判断成variable?不敢保证, 所以放在了这个位置看
+          (let ((u (base exp))
+                (n (exponent exp)))
+           (makeProduct (makeProduct n 
+                                     (makeExponentiation u (- n 1)))
+                        (deriv u var))))
         ((variable? exp)  ; a b x这种都是
          (if (sameVariable? exp var) 1 0))
         ((sum? exp)
@@ -63,10 +68,7 @@
         (else 
           (error "unknown expression type -- DERIV" exp))))
 
-; 都用括号括起来了, 所以没优先级问题了...因为被list这么()表示出来的
-(define exp1 '(+ x 3))
-exp1
-;(deriv '(+ x 3) 'x)
-(deriv exp1 (quote x))
-;(deriv '(* x y) 'x)
-;(deriv '(* (* x y) (+ x 3)) 'x)
+(deriv '(** x 0) 'x)
+(deriv '(** x 1) 'x)
+(deriv '(** x 2) 'x)
+(deriv '(** x 3) 'x)
