@@ -2,9 +2,10 @@
 ; 太小的数, 按原先的写法0.001还不够, 还得0.000001这种, 但是又不好动态调整
 ; 太大的数, 应该设置成1/10这种, 0.001又太小了. 会导致计算不到稳定点附近. 因为0.001这种对大的数显得精度太高, 然后死循环了
 (define (sqrt-iter guess x)
-  (if (good-enough? (improve guess x) guess)
-      (improve guess x)
-      (sqrt-iter (improve guess x) x)))
+  (let ((new-guess (improve guess x)))
+    (if (good-enough? new-guess guess)
+        new-guess
+        (sqrt-iter (improve guess x) x))))
 
 (define (improve guess x)
   (average guess (/ x guess)))
