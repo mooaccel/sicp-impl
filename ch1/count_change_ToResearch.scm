@@ -51,3 +51,39 @@
 ;        这种是top-down的计算模式, 采用top-down with memoization可以解决
 ;        [clrs, 第三版英文p365]. The ﬁrst approach is top-down with memoization. 2 In this approach, we write the procedure recursively in a natural manner, but modiﬁed to save the result of each subproblem (usually in an array or hash table). The procedure now ﬁrst checks to see whether it has previously solved this subproblem. If so, it returns the saved value, saving further computation at this level; if not, the procedure computes the value in the usual manner. We say that the recursive procedure has been memoized; it “remembers” what results it has computed previously.
 ;        或者是用C/C++语言这种, 手动写for循环, 然后带个table, 叫bottom-up method. Leetcode上有这种题
+
+; 尝试用C++写
+; #include <iostream>
+; #include <unordered_map>
+; 
+; class CountCharge {
+;  public:
+;   CountCharge() {
+;       change_ht_[5] = 50;
+;       change_ht_[4] = 25;
+;       change_ht_[3] = 10;
+;       change_ht_[2] = 5;
+;       change_ht_[1] = 1;
+;   }
+; 
+;   int GetCountCharge(int target, int n) {
+;       if (target == 0) {
+;           return 1;
+;       } else if (target < 0 || n == 0) {
+;           return 0;
+;       } else {
+;           return GetCountCharge(target, n - 1) + GetCountCharge(target - change_ht_[n], n);
+;       }
+;   }
+;  private:
+;   //  5   4   3   2  1
+;   //  50, 25, 10, 5, 1
+;   std::unordered_map<int, int> change_ht_;
+; };
+; 
+; int main() {
+;     CountCharge countCharge;
+;     std::cout << countCharge.GetCountCharge(100, 5) << '\n';
+; }
+
+; top-down with memoization待研究
