@@ -45,6 +45,8 @@
                  (count-charge (- target (acquire-first-in-orderedset n)) n)))))
 ; 292
 (count-charge 100 5)
+
+(count-charge 11 5)
 ; todo1, 研究下or/and 是不是有短路评估? 应该是
 ; todo2, 研究下cond是不是也有短路评估? if就是只有一条路径会生效, 会因为application order产生细微影响
 ; todo3, 冗余计算消除问题, 如何用dp(dynamic programming)消除?
