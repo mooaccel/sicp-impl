@@ -22,12 +22,16 @@
                         (- count 1)))))
 ; 0 1 1 2 3 5 8 13 21
 ; 0 1 2 3 4 5 6 7  8
-(fib 0)
-(fib 1)
-(fib 2)
-(fib 3)
-(fib 4)
-(fib 5)
-(fib 6)
-(fib 7)
+; (fib 0)
+; (fib 1)
+; (fib 2)
+; (fib 3)
+; (fib 4)
+; (fib 5)
+; (fib 6)
+; (fib 7)
+(trace-entry fib-iter)
 (fib 8)
+; todo, toResearch, 待研究
+; https://sicp.readthedocs.io/en/latest/chp1/19.html
+; https://www.ics.uci.edu/~eppstein/161/
