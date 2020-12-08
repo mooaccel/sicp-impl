@@ -15,6 +15,9 @@
 ; 
 ; -> denote import 
 
+; Scheme 保证, 当一个环境中存在两个同名的绑定时, 新的绑定会覆盖旧的绑定
+; https://sicp.readthedocs.io/en/latest/chp1/23.html
+
 (define (next-divisor num)
   (newline)
   (display "old ver")
