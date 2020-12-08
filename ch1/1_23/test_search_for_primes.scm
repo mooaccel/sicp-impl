@@ -1,12 +1,15 @@
 (load "./ch1/1_23/search_for_primes.scm")
 
+(define (next-divisor num)
+  (+ num 1))
+
 (search-for-primes-for-question 1000)
-; (search-for-primes-for-question 10000)
-; (search-for-primes-for-question 100000)
-; (search-for-primes-for-question 1000000)
-; (search-for-primes-for-question 10000000)
-; (search-for-primes-for-question 100000000)
-; (search-for-primes-for-question 1000000000)
+(search-for-primes-for-question 10000)
+(search-for-primes-for-question 100000)
+(search-for-primes-for-question 1000000)
+(search-for-primes-for-question 10000000)
+(search-for-primes-for-question 100000000)
+(search-for-primes-for-question 1000000000)
 
 ;  ; if use num = num + 1 version
 ;  ; 1 ]=> (search-for-primes-for-question 1000)
