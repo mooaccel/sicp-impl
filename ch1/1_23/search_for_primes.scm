@@ -1,0 +1,21 @@
+(load "./ch1/1_23/prime.scm")
+; 只依赖于prime?函数
+
+(define (search-for-primes num count)
+  (define (next-odd n)
+    (if (even? n) 
+        (+ 1 n)
+        (+ 2 n)))
+  (cond ((= count 0)
+         (newline)
+         (display "are primes. end"))
+        ((prime? num)
+         (newline)
+         (display num)
+         (search-for-primes (next-odd num) (- count 1)))
+        (else (search-for-primes (next-odd num) count))))
+
+(define (search-for-primes-for-question n)
+  (let ((start-time (real-time-clock)))
+       (search-for-primes n 3)
+       (- (real-time-clock) start-time)))
