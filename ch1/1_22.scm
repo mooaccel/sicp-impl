@@ -5,21 +5,16 @@
 (prime? 5)
 (prime? 100)
 
-(define (timed-prime-test n)
-  (newline)
-  (display n)
-  (start-prime-test n (runtime)))
-(define (start-prime-test n start-time)
-  (if (prime? n)
-      (report-prime n (- (runtime) start-time))))
-(define (report-prime n elapsed-time)
-  (display " is prime. elapsed-time = ")
-  (display elapsed-time))
-
-; (timed-prime-test 97)
-; (timed-prime-test 100)
-; (timed-prime-test 10000)
-; (timed-prime-test 100000)
+;(define (timed-prime-test n)
+;  (newline)
+;  (display n)
+;  (start-prime-test n (runtime)))
+;(define (start-prime-test n start-time)
+;  (if (prime? n)
+;      (report-prime n (- (runtime) start-time))))
+;(define (report-prime n elapsed-time)
+;  (display " is prime. elapsed-time = ")
+;  (display elapsed-time))
 
 (define (search-for-primes num count)
   (define (next-odd n)
@@ -43,8 +38,9 @@
 (search-for-primes-for-question 10000)
 (search-for-primes-for-question 100000)
 (search-for-primes-for-question 1000000)
+(search-for-primes-for-question 10000000)
+(search-for-primes-for-question 100000000)
+(search-for-primes-for-question 1000000000)
+; 可以看到，当 search-for-primes-for-question 的输入以 10 为倍数上升时，寻找素数所需的时间并不是严格地按照 √10 倍上升的, why?
+; https://sicp.readthedocs.io/en/latest/chp1/22.html里提到的
 
-
-(define (inc x)
-  (+ x 1))
-(inc 123)
