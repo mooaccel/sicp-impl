@@ -35,11 +35,29 @@
               1
               (lambda (k) (+ k 1))
               precision)))
+
+(define (compute-pi-v2 precision)
+  (* 4
+     (exact->inexact (/ (product numerator-m 
+                                 1
+                                 (lambda (k) (+ k 1))
+                                 precision)
+                        (product denominator-m
+                                 1
+                                 (lambda (k) (+ k 1))
+                                 precision)))))
 (compute-pi 100)
+(compute-pi-v2 100)
+
 (compute-pi 1000)
+(compute-pi-v2 1000)
+
 (compute-pi 10000)
+(compute-pi-v2 10000)
+
 (compute-pi 100000)
-(compute-pi 1000000)
+; v2在计算100000的时候更慢, 猜测原因在于两个大数相除导致的, !避免大数相除
+(compute-pi-v2 100000)
 
 ;(define (term n)
 ;
