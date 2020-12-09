@@ -18,5 +18,5 @@
     (define (next k)
       (+ k 1))
     (* (/ h 3.0)
-       (sum term 0 next n))
+       (sum term (exact->inexact 0) next n))
     ))
