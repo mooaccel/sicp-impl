@@ -1,11 +1,4 @@
-; 计算[a, b]对应的term之和, 左右都是闭区间
-(define (accumulate combiner null-value term a next b)
-  (define (iter a result)
-    (if (> a b)
-        result
-        (iter (next a) (combiner (term a)
-                                 result))))
-  (iter a null-value))
+(load "./ch1/1_32/accumulate_recursive.scm")
 
 (define (sum term a next b)
   (accumulate + 0 term a next b))
