@@ -25,3 +25,10 @@
 (half-interval-method (lambda (x) (- (* x x x) (* 2 x) 3))
                       1.0
                       2.0)
+(define a 7)
+(half-interval-method (lambda (x) 
+                              (- (square x) 
+                                 a)) 
+                      2.0 
+                      4.0)
+; 相比较后面的p92的用不动点的方法去寻找根, 这种half-interval-method方法不会出现震荡...根据零点定理, 必然能找到解
