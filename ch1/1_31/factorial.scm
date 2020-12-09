@@ -1,9 +1,11 @@
 (load "./ch1/1_31/product.scm")
 
-(define (facrorial x)
+(define (factorial x)
         (product (lambda (x) x)
                  1
                  (lambda (num) (+ num 1))
                  x))
 
-(facrorial 5)
+(factorial 5)
+
+(factorial 10)
