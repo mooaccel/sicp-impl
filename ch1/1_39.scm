@@ -27,10 +27,15 @@
 ; 2.7182818284590455
 (tan-cf 0 100)
 (tan-cf (/ pi 12) 100)
+(tan (/ pi 12))
 (tan-cf (/ pi 8) 100)
+(tan (/ pi 8))
 (tan-cf (/ pi 6) 100)
+(tan (/ pi 6))
 (tan-cf (/ pi 4) 100)
+(tan (/ pi 4))
 (tan-cf (/ pi 3) 100)
+(tan (/ pi 3))
 ; 这个为啥有问题...?why?
 (tan-cf 1 100)
 ; 底下这俩都没问题?
