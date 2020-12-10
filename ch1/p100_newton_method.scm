@@ -50,5 +50,15 @@
 ; 也即寻找 x - g(x)/g'(x)函数的不动点, 即f(x)函数的不动点
 ; 不断下去求, 然后得到一个最终的x
 
+; !!! 本质上迭代方程需要通过牛顿法获取, 牛顿法是在求g(x)=0的问题上存在的解法, (另外一种是折半查找法, 但是没有牛顿法高效)
+; todo, 再研究下求解g(x) = 0的问题时这两种方法的优劣? todo->看wikipedia
+; Newton’s method does not always converge to an answer, but it can be shown
+; that in favorable cases each iteration doubles the number-of-digits accuracy 
+; of the approximation to the solution. In such cases, Newton’s method will converge much more rapidly than the half-interval method.
+; 折半查找即使不可导也可用, 这是能想到的一个点...
+
+; 其实g(x)=0, 如果g(x)可导, 那么可用牛顿法, 那么本质上来说等价于求f(x) = (transform g(x))这个不动点问题
+; x -> x - g(x)/g'(x) -> ... 不断地寻找x, 然后直到停止...最终其实还是要x不怎么变化... 那就是不动点问题, 可以想象零点问题的图的x不怎么变化
+; 然后可以转换到这一类不动点问题上, 牛顿法用来找迭代方程!!! 然后根据这个迭代方程寻求更好的x...
 
 ; 牛顿法与不动点的wikipedia, todo待看
