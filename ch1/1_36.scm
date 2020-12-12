@@ -50,11 +50,11 @@
                (f x))))
 
 ; 对比发现，不带平均阻尼的计算使用了 37 步，另一方面，使用平均阻尼的计算只使用了 13 步，说明平均阻尼有助于计算快速收敛。
-(compute-root (lambda (x) (/ (log 1000)
-                              (log x))))
-(compute-root (average-damp (lambda (x) (/ (log 1000)
-                             (log x)))))
-
+; (compute-root (lambda (x) (/ (log 1000)
+;                               (log x))))
+; (compute-root (average-damp (lambda (x) (/ (log 1000)
+;                              (log x)))))
+; 
 ; scheme自带的是以自然对数为底的, 计算机著作里面比如具体数学, (log2) = 1
 ; (log2.71828) = 1
 ; x^x= 1000
