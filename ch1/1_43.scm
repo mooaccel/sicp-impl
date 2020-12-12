@@ -13,6 +13,17 @@
       (lambda (x) (f x))
       (lambda (x) 
                (f ((repeated f (- n 1)) x)))))
-((repeated square 2) 5)
 
 ; iterative process todo? 怎么实现?
+; f(f(f(x))) = f(g(x))
+(define (repeated f n)
+  (define (repeated-impl count g)
+    (if (= count n)
+        g
+        (repeated-impl (+ count 1) 
+                       (compose f g))))
+  (repeated-impl 1 f))
+
+((repeated square 3) 2)
+; 2 -> 4 -> 16 -> 256 
+((repeated square 2) 5)
