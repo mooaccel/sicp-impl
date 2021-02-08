@@ -1,0 +1,11 @@
+;(load "./ch2/p116_rational_number.scm")
+(load "./ch2/2_01/rational_base.scm")
+
+(define r1 (make-rat -1 4))
+(print-rat r1)
+(define r2 (make-rat 1 -4))
+(print-rat r2)
+(define r3 (make-rat -3 -6))
+(print-rat r3)
+(define r4 (make-rat 1 4))
+(print-rat r4)
