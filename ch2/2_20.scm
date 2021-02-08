@@ -57,3 +57,8 @@
 
 (sameParity 1 2 3 4 5 6 7)
 (sameParity 2 3 4 5 6 7)
+;(define (g . w) w)
+;(g)
+; 为啥这样不行?
+(define g (lambda (. w) w))
+(g)
