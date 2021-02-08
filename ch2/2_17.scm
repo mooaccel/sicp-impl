@@ -10,6 +10,7 @@
 
 ; 有问题的测试值
 ; 所以明白为啥不叫last-elem了...
+; 这种结构不是list
 (define testVal (cons 1 
                       (cons 2 3)))
 testVal
