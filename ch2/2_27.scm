@@ -8,7 +8,7 @@
           (if (list? hd)
               (reverse-iter tl (cons (reverse-iter hd '())  ; 注意这里的acc是'()代表全新的过程
                                      acc))
-              (reverse-iter (cdr li) 
+              (reverse-iter tl
                             (cons hd acc))))
     ))
   (reverse-iter li '()))
