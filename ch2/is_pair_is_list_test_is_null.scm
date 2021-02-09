@@ -17,3 +17,7 @@
 (null? val1)
 (null? val2)
 (null? val3)
+(list? (cons 3 '()))
+(list? (cons 3 4))  ; 这个是#f
+(pair? (cons 3 '()))
+(pair? (cons 3 4))
