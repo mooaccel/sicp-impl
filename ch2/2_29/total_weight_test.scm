@@ -1,4 +1,4 @@
-(load "./ch2/2_29/total_weight.scm")
+(load "./ch2/2_29/2_29.scm")
 
 (define test_usecase_01_mobile (make-mobile (make-branch 100
                                                          (make-mobile (make-branch 7 6)

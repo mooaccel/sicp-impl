@@ -1,29 +1,51 @@
-; A binary mobile consists of two branches
-(define (make-mobile left right) 
-  (list left right))
-; structure, which may be either a number (representing a simple weight) or another mobile:
-(define (make-branch length structure) 
-  (list length structure))
+;  ; A binary mobile consists of two branches
+;  (define (make-mobile left right) 
+;    (list left right))
+;  ; structure, which may be either a number (representing a simple weight) or another mobile:
+;  (define (make-branch length structure) 
+;    (list length structure))
 
+(define (make-mobile left right) (cons left right)) 
+(define (make-branch length structure) (cons length structure))
+
+;(define (left-branch mobile)
+;  (car mobile))
+;(define (right-branch mobile)
+;  (cadr mobile))
+;(define (branch-length branch)
+;  (car branch))
+;(define (branch-structure branch)
+;  (cadr branch))
 (define (left-branch mobile)
   (car mobile))
 (define (right-branch mobile)
-  (cadr mobile))
+  (cdr mobile))
 (define (branch-length branch)
   (car branch))
 (define (branch-structure branch)
-  (cadr branch))
+  (cdr branch))
 
+; ; tree
+; (define (mobile? something) 
+;   (list? (cadr something)))
+; ; tree or leaf
+; (define (structure? something)
+;   (if (null? something)
+;       #f
+;       (list? something)))
+; (define (weight-of leaf)
+;   (cadr leaf))
 ; tree
+; 输入是branch
 (define (mobile? something) 
-  (list? (cadr something)))
+  (pair? (cdr something)))
 ; tree or leaf
 (define (structure? something)
   (if (null? something)
       #f
-      (list? something)))
+      (pair? something)))
 (define (weight-of leaf)
-  (cadr leaf))
+  (cdr leaf))
 
 (define (total-weight st)
   (define (aux st acc)
