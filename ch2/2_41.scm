@@ -9,6 +9,7 @@
       '() 
       (cons low (enumerate-interval (+ low 1) high))))
 
+; flatmap不会改变顺序
 (define (flatmap proc seq) 
   (accumulate append '() (map proc seq)))
   
