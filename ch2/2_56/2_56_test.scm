@@ -8,3 +8,6 @@
 (deriv (make-exponentiation 'x 1) 'x)
 (deriv (make-exponentiation 'x 2) 'x)
 (deriv (make-exponentiation 'x 3) 'x)
+
+; 5_56还不能处理多个乘积的情况, 5_57能处理
+; (deriv '(* x y (+ x 3)) 'x)
