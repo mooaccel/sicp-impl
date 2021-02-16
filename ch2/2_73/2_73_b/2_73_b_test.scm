@@ -1,9 +1,11 @@
 (load "./ch2/2_73/2_73_b/2_73_b_sum.scm")
+(load "./ch2/2_73/2_73_b/2_73_b_product.scm")
 
 ; deriv
 (load "./ch2/2_73/2_73.scm")
 
 (install-sum-package)
+(install-product-package)
 
 (deriv 'x 'x)
 (deriv 3 'x)
@@ -14,5 +16,6 @@
 (define sum-1 (make-sum 'x (make-sum 'x 14)))
 sum-1
 (deriv sum-1 'x)
+(deriv (make-sum 'x (make-product 'x (make-product 'x 'x))) 'x)
 ;((get 'deriv 'sum) (contents sum-1) 'x)
 ;(list 'sum 'x '3) 'x)

@@ -26,8 +26,8 @@
   (define (deriv-impl exp var) 
     ; 调内部的make-sum和addend吧?
     ; 然后调用上层deriv, 重新dispatch, 注意这里不是进入deriv-impl递归
-    (make-sum-impl (deriv (addend-impl exp) var) 
-                   (deriv (augend-impl exp) var)))
+    (make-sum (deriv (addend-impl exp) var) 
+              (deriv (augend-impl exp) var)))
   ; interface to the rest of the system
   ;(define (tag x) (attach-tag ' x)) 
   (put 'make-sum 'sum make-sum-impl)
