@@ -13,5 +13,6 @@
 (load "./ch2/2_73/2_73_b/tag_basic.scm")
 (define sum-1 (make-sum 'x (make-sum 'x 14)))
 sum-1
-((get 'deriv 'sum) (contents sum-1) 'x)
+(deriv sum-1 'x)
+;((get 'deriv 'sum) (contents sum-1) 'x)
 ;(list 'sum 'x '3) 'x)
