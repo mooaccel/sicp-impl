@@ -7,6 +7,7 @@
   (if (pair? datum) 
       (cdr datum) 
       (error "Bad tagged datum: CONTENTS" datum)))
+; 传入多个参数怎么处理的?
 (define (apply-generic op . args)
   (let ((type-tags (map type-tag args))) 
     (let ((proc (get op type-tags))) 
