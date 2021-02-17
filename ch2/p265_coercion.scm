@@ -1,4 +1,7 @@
-; 在哪使用apply-generic?
+; p238 tag相关函数
+(load "./ch2/p238_tag.scm")
+
+; 修改版本的apply-generic, 多了类型转换, 即coercion
 (define (apply-generic op . args)
   (let ((type-tags (map type-tag args))) 
     (let ((proc (get op type-tags))) 
