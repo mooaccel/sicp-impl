@@ -1,4 +1,4 @@
-(load "./ch2/p256_generic_procedure/apply_generic_impl.scm")
+(load "./ch2/apply_generic_impl.scm")
 
 (define (add x y) (apply-generic 'add x y))
 (define (sub x y) (apply-generic 'sub x y)) 

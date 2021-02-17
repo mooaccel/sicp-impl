@@ -20,3 +20,4 @@
 
 (real-part complex2)
 (imag-part complex2)
+(magnitude complex2)

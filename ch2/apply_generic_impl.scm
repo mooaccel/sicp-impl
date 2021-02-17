@@ -1,6 +1,4 @@
-; todo, 目前采用的是两次导入会重复吧? 在最后的整个系统里, 先不管这些细节
-; 传入多个参数怎么处理的?
-
+; 在书本p238有实现
 (define (type-tag datum) 
   (if (pair? datum) 
       (car datum) 
@@ -9,8 +7,9 @@
   (if (pair? datum) 
       (cdr datum) 
       (error "Bad tagged datum: CONTENTS" datum)))
-
+; 传入多个参数怎么处理的?
 (define (apply-generic op . args)
+  (display "execution ...")
   (let ((type-tags (map type-tag args))) 
     (let ((proc (get op type-tags))) 
       ; if proc是什么语法?

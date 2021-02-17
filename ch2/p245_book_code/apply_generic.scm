@@ -1,26 +1,12 @@
-; 在书本p238有实现
-(define (type-tag datum) 
-  (if (pair? datum) 
-      (car datum) 
-      (error "Bad tagged datum: TYPE-TAG" datum)))
-(define (contents datum) 
-  (if (pair? datum) 
-      (cdr datum) 
-      (error "Bad tagged datum: CONTENTS" datum)))
-; 传入多个参数怎么处理的?
-(define (apply-generic op . args)
-  (let ((type-tags (map type-tag args))) 
-    (let ((proc (get op type-tags))) 
-      ; if proc是什么语法?
-      (if proc 
-          (apply proc (map contents args)) 
-          (error
-          "No method for these types: APPLY-GENERIC" (list op type-tags))))))
+(load "./ch2/apply_generic_impl.scm")
+
 (define (real-part z) 
   (apply-generic 'real-part z)) 
 (define (imag-part z) 
   (apply-generic 'imag-part z)) 
 (define (magnitude z) 
+  ;(display "magnitude call...")
+  ; 为什么这个在2_77里能连剥两层tag?
   (apply-generic 'magnitude z)) 
 (define (angle z) 
   (apply-generic 'angle z))
