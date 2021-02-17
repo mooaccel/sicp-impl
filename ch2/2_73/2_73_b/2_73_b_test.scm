@@ -10,9 +10,6 @@
 (deriv 'x 'x)
 (deriv 3 'x)
 
-;(deriv (list 'sum 'x '3) 'x)
-
-(load "./ch2/2_73/2_73_b/tag_basic.scm")
 (define sum-1 (make-sum 'x (make-sum 'x 14)))
 sum-1
 (deriv sum-1 'x)
