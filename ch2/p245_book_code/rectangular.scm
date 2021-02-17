@@ -16,6 +16,16 @@
   (put 'magnitude '(rectangular) magnitude) 
   (put 'angle '(rectangular) angle) 
   (put 'make-from-real-imag 'rectangular
-    (lambda (x y) (tag (make-from-real-imag x y)))) 
+    (lambda (x y) 
+      (tag (make-from-real-imag x y))
+    )
+  ) 
   (put 'make-from-mag-ang 'rectangular 
-    (lambda (r a) (tag (make-from-mag-ang r a)))) 'done)    ;done是什么意思?
+    (lambda (r a) (tag (make-from-mag-ang r a)))
+  ) 
+  'done)    ;done是什么意思?
+
+;(load "./ch2/p245_book_code/tag_basic.scm")
+;(load "./ch2/p245_book_code/table_basic.scm")
+;()
+;((get 'make-from-real-imag 'rectangular) 11 22)
