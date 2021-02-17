@@ -7,6 +7,7 @@
 (define (magnitude z) 
   ;(display "magnitude call...")
   ; 为什么这个在2_77里能连剥两层tag?
+  ;(display z)
   (apply-generic 'magnitude z)) 
 (define (angle z) 
   (apply-generic 'angle z))
