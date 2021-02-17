@@ -15,8 +15,6 @@
       (car x))
   (define (denom x)
       (cdr x))
-  (put 'equ? '(scheme-number scheme-number)
-    (lambda (x y) (= x y)))
   ;; 新增
   (put 'equ? '(rational rational)
       (lambda (x y)
