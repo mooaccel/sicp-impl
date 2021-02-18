@@ -19,16 +19,15 @@
       (if proc 
           (apply proc (map contents args)) 
           (if (= (length args) 2) 
-              (if (= (length args) 2) 
-               (let ((a1 (car args)) 
-                     (a2 (cadr args))) 
-                 (cond  
-                   ; 尝试提升a1至a2
-                   ((raise-into a1 a2) 
-                      (apply-generic op (raise-into a1 a2) a2)) 
-                   ; 如果提升不成功, 再尝试把a2提升至a1
-                   ((raise-into a2 a1) 
-                      (apply-generic op a1 (raise-into a2 a1))) 
-                   (else (error "No method for these types" 
-                         (list op type-tags))))))
-              (error "No method for these types" (list op type-tags)))))))
+              (let ((a1 (car args)) 
+                    (a2 (cadr args))) 
+                (cond  
+                  ; 尝试提升a1至a2
+                  ((raise-into a1 a2) 
+                     (apply-generic op (raise-into a1 a2) a2)) 
+                  ; 如果提升不成功, 再尝试把a2提升至a1
+                  ((raise-into a2 a1) 
+                     (apply-generic op a1 (raise-into a2 a1))) 
+                  (else (error "No method for these types" 
+                        (list op type-tags)))))
+              (error "No method for these types" (list op type-tags))))))
