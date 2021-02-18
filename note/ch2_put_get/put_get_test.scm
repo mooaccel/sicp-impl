@@ -41,3 +41,13 @@ val1
   ;  )))
 
 (apply-generic 'magnitude val2 val3)
+
+(define val5 (cons 'polar 20))
+(define val6 (cons 'polar 21))
+
+(put 'magnitude 'qwer (lambda (x y) (+ x y)))
+((get 'magnitude 'qwer) 10 20)
+(put 'magnitude '(tag_1) (lambda (x y) (+ x y 11)))
+((get 'magnitude (list 'tag_1)) 10 20)
+
+; 注意这两个get之间的区别
