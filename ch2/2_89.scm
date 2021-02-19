@@ -11,7 +11,7 @@
 (define (make-term order coeff) (list order coeff))
 ; 同样假设了term的order比term-list里的所有order都大
 (define (adjoin-term term term-list) 
-   (cond ((=zero? term) term-list) 
+   (cond ((=zero? (coeff term)) term-list) 
          ; (length term-list)是order + 1
          ((=equ? (order term) 
                  (length term-list)) (cons (coeff term) term-list)) 
