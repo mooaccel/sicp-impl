@@ -15,6 +15,8 @@
       (add-terms (mul-term-by-all-terms (first-term L1) L2) 
                  (mul-terms (rest-terms L1) L2)))) 
 
+; 用一个term t1去乘一个term list
+; 返回一个新的term list
 (define (mul-term-by-all-terms t1 L) 
   (if (empty-termlist? L) 
       (the-empty-termlist) 
