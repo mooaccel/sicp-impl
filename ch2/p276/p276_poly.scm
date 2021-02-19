@@ -25,11 +25,11 @@
                                 (mul (coeff t1) (coeff t2))) 
                      (mul-term-by-all-terms t1 (rest-terms L))))))
 
-
 (define (adjoin-term term term-list) 
   (if (=zero? (coeff term)) 
       term-list 
       (cons term term-list))) 
+
 (define (the-empty-termlist) '()) 
 (define (first-term term-list) (car term-list)) 
 (define (rest-terms term-list) (cdr term-list)) 
