@@ -1,0 +1,7 @@
+(define (make-accumulator init_val)
+  (lambda (accumu_val) 
+    (set! init_val (+ init_val accumu_val))
+    init_val))
+(define A (make-accumulator 5)) 
+(A 10) 
+(A 100)
