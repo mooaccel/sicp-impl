@@ -5,11 +5,12 @@
     (define (set-my-signal! new-value) 
       (if (not (= signal-value new-value)) 
           (begin (set! signal-value new-value) 
-                 (call-each action-procedures)) 'done)) 
+                 (call-each action-procedures)) 
+          'done)) 
 
     (define (accept-action-procedure! proc) 
       (set! action-procedures (cons proc action-procedures)) 
-      ; ?
+      ; 初始时会运行一次
       (proc)) 
 
     (define (dispatch m) 

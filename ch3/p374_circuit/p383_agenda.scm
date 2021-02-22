@@ -44,6 +44,9 @@
               (add-to-segments! rest)))))
 
   (let ((segments (segments agenda))) 
+    (newline)
+    (display "In add-to-agenda!, cur time = ")
+    (display (current-time agenda))
     (if (belongs-before? segments)   ; 应该放在最前面, 这个time最小
         (set-segments! agenda (cons (make-new-time-segment time action) 
                                     segments)) 
@@ -62,4 +65,7 @@
       (error "Agenda is empty: FIRST-AGENDA-ITEM") 
       (let ((first-seg (first-segment agenda))) 
            (set-current-time! agenda (segment-time first-seg)) 
+           (newline)
+           (display "In first-agenda-item, cur time = ")
+           (display (current-time agenda))
            (front-queue (segment-queue first-seg)))))
