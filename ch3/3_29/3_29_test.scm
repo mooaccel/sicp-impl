@@ -9,8 +9,8 @@
 
 (or-gate input-1 input-2 output)
 
-(get-signal output)
 (propagate)
+(get-signal output)
 ;(get-signal output) 
 ;(set-signal! input-1 1)
 ;(propagate)
