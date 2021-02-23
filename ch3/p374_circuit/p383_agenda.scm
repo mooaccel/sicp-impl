@@ -66,6 +66,6 @@
       (let ((first-seg (first-segment agenda))) 
            (set-current-time! agenda (segment-time first-seg)) 
            (newline)
-           (display "In first-agenda-item, cur time = ")
+           (display "In first-agenda-item, after set, cur time = ")
            (display (current-time agenda))
            (front-queue (segment-queue first-seg)))))

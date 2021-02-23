@@ -1,4 +1,11 @@
 (define (after-delay delay action)
+    (newline)
+    (display "In after-delay, current-time + delay = ")
+    (display (current-time the-agenda))
+    (display " + ")
+    (display delay)
+    (display " = ")
+    (display (+ delay (current-time the-agenda)))
     (add-to-agenda! (+ delay (current-time the-agenda))
                     action
                     the-agenda))

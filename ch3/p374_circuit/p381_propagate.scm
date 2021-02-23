@@ -1,5 +1,7 @@
 ; 不断的运行agenda里的item
 (define (propagate)
+    (newline)
+    (display "[=== enter propagate...]")
     (if (empty-agenda? the-agenda)
         'done
         (let ((first-item (first-agenda-item the-agenda)))
