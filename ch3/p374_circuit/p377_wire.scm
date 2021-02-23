@@ -10,7 +10,7 @@
 
     (define (accept-action-procedure! proc) 
       (set! action-procedures (cons proc action-procedures)) 
-      ; 初始时会运行一次
+      ; 初始时会运行一次, 保证整体电路初始化正确, 见ch3/3_31.scm
       (proc)) 
 
     (define (dispatch m) 
