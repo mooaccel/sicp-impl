@@ -12,6 +12,7 @@
     (forget-value! sum me)
     (forget-value! a1 me)
     (forget-value! a2 me)
+    ; ? 可以没有它吗?
     (process-new-value))
   (define (me request)
     (cond ((eq? request 'I-have-a-value) 

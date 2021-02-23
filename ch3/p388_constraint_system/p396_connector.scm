@@ -1,6 +1,9 @@
 (define (make-connector)
+        ; 保存持有的值
   (let ((value #f) 
+        ; 持有值则保存这个值从哪传来的, 保存这个通知者, 即某个constraint
         (informant #f) 
+        ; 一个connector可用与多个constraint产生联系
         (constraints '())) 
 
     (define (set-my-value newval setter)
@@ -10,11 +13,12 @@
               (for-each-except setter inform-about-value constraints)) 
             ((not (= value newval)) 
               (error "Contradiction" (list value newval))) 
+            ; 如果有值存在, 而且value = newval, 那么忽略此次传播即可
             (else 'ignored)))
-    ; retractor等于informant才进行操作
+    ; retractor等于informant才能进行forget
     (define (forget-my-value retractor) 
       (if (eq? retractor informant) 
-          (begin (set! informant false) 
+          (begin (set! informant #f) 
                  (for-each-except retractor inform-about-no-value constraints)) 
           'ignored))
     (define (connect new-constraint) 

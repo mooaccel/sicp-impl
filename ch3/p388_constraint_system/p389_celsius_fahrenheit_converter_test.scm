@@ -21,4 +21,5 @@
 (probe "Celsius temp" C) 
 (probe "Fahrenheit temp" F)
 (set-value! C 40 'user)
-;(set-value! F 140 'user)
+; (forget-value! C 'user1)
+; (set-value! F 140 'user)
