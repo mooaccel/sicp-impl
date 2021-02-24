@@ -1,0 +1,2 @@
+在读balance这里加上serializer保护, 没必要
+和没加一样, 因为读balance这个操作本身就不可再拆开
