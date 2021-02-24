@@ -12,7 +12,7 @@
     (forget-value! sum me)
     (forget-value! a1 me)
     (forget-value! a2 me)
-    ; ? 可以没有它吗?
+    ; ? 可以没有它吗? 不行, 参考ch3/3_34.scm, 对3_34的题目进行了进一步研究
     (process-new-value))
   (define (me request)
     (cond ((eq? request 'I-have-a-value) 
